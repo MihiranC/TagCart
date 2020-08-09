@@ -688,23 +688,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {},
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Works\\TagTeam\\Admin\\API\\AdminAPI\\TagTeam.Admin\\TagTeam.Admin.Domain\\TagTeam.Admin.Domain.csproj",
+      "projectUniqueName": "E:\\TagHold\\Shopping_Cart\\API\\TagTeam.Admin\\TagTeam.Admin.Domain\\TagTeam.Admin.Domain.csproj",
       "projectName": "TagTeam.Admin.Domain",
-      "projectPath": "D:\\My Works\\TagTeam\\Admin\\API\\AdminAPI\\TagTeam.Admin\\TagTeam.Admin.Domain\\TagTeam.Admin.Domain.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "D:\\My Works\\TagTeam\\Admin\\API\\AdminAPI\\TagTeam.Admin\\TagTeam.Admin.Domain\\obj\\",
+      "projectPath": "E:\\TagHold\\Shopping_Cart\\API\\TagTeam.Admin\\TagTeam.Admin.Domain\\TagTeam.Admin.Domain.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "E:\\TagHold\\Shopping_Cart\\API\\TagTeam.Admin\\TagTeam.Admin.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
