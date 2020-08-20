@@ -10,3 +10,15 @@ D:\My Works\TagTeam\Admin\API\AdminAPI\TagTeam.Admin\TagTeam.Admin.Service\obj\D
 D:\My Works\TagTeam\Admin\API\AdminAPI\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.csproj.CopyComplete
 D:\My Works\TagTeam\Admin\API\AdminAPI\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.dll
 D:\My Works\TagTeam\Admin\API\AdminAPI\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.pdb
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\bin\Debug\netcoreapp2.1\TagTeam.Admin.Service.deps.json
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\bin\Debug\netcoreapp2.1\TagTeam.Admin.Service.dll
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\bin\Debug\netcoreapp2.1\TagTeam.Admin.Service.pdb
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\bin\Debug\netcoreapp2.1\TagTeam.Admin.Domain.dll
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\bin\Debug\netcoreapp2.1\TagTeam.Admin.Domain.pdb
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.csprojAssemblyReference.cache
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.csproj.CoreCompileInputs.cache
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.AssemblyInfoInputs.cache
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.AssemblyInfo.cs
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.csproj.CopyComplete
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.dll
+D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.Service\obj\Debug\netcoreapp2.1\TagTeam.Admin.Service.pdb
