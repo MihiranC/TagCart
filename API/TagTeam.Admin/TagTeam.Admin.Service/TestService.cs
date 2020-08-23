@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TagTeam.Admin.Domain;
 using TagTeam.Admin.Domain.CustomModels;
@@ -8,11 +9,13 @@ namespace TagTeam.Admin.Service
 {
     public class TestService : ITest_Interface
     {
-        private readonly string _connectionString;
+        private readonly string _adminConnectionString;
+        private readonly string _sPConnectionString;
 
-        public TestService(string connectionString)
+        public TestService(string adminConnectionString, string sPConnectionString)
         {
-            _connectionString = connectionString;
+            _adminConnectionString = adminConnectionString;
+            _sPConnectionString = sPConnectionString;
 
         }
 
@@ -32,11 +35,19 @@ namespace TagTeam.Admin.Service
                 //    await connection.ExecuteAsync("[cal].[InsertCallCenterOfficer]", para, commandType: System.Data.CommandType.StoredProcedure);
 
                 //}
+                List<Test> lt = new List<Test>();
                 Test test = new Test();
                 test.testValue1 = "Test Data 1";
                 test.testValue2 = "Test Data 2";
-                
-                return new BaseModel() { code = "1000", description = "Success", data = test };
+                Test test1 = new Test();
+                test1.testValue1 = "Test Data 1";
+                test1.testValue2 = "Test Data 2";
+
+                lt.Add(test);
+                lt.Add(test1);
+
+
+                return new BaseModel() { code = "1000", description = "Success", data = lt };
             }
             catch (Exception ex)
             {
