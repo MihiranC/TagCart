@@ -6,9 +6,9 @@ namespace TagTeam.Admin.Domain
 {
     public class Pages
     {
-        int PageId { get; set; }
-        int HeaderId { get; set; }
-        string PageName { get; set; }
-        string Path { get; set; }
+        public int PageId { get; set; }
+        public int HeaderId { get; set; }
+        public string PageName { get; set; }
+        public string Path { get; set; }
     }
 }

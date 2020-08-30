@@ -19,7 +19,7 @@ namespace TagTeam.Admin.API
     {
         private IConfiguration _configuration { get; }
         private static string _adminConnectionString { get; set; }
-        private static string _sPConnectionString { get; set; }
+        private static string _sCConnectionString { get; set; }
         private static string _DocumentUploadPath { get; set; }
 
         public Startup(IConfiguration configuration)
@@ -32,7 +32,7 @@ namespace TagTeam.Admin.API
 
             _configuration = builder.Build();
             _adminConnectionString = _configuration.GetConnectionString("AdminConnection");
-            _sPConnectionString = _configuration.GetConnectionString("SPConnection");
+            _sCConnectionString = _configuration.GetConnectionString("SCConnection");
         }
 
         public IConfiguration Configuration { get; }
@@ -41,8 +41,8 @@ namespace TagTeam.Admin.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddTransient<ITest_Interface>(c => new TestService(_adminConnectionString, _sPConnectionString));
-            services.AddTransient<IPages_Interface>(c => new PagesService(_adminConnectionString, _sPConnectionString));
+            services.AddTransient<ITest_Interface>(c => new TestService(_adminConnectionString, _sCConnectionString));
+            services.AddTransient<IPages_Interface>(c => new PagesService(_adminConnectionString, _sCConnectionString));
 
         }
 
