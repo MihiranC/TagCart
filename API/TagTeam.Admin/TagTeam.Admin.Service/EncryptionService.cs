@@ -8,13 +8,12 @@ namespace TagTeam.Admin.Service
 {
     public class EncryptionService
     {
-        public string ReturnEncryptedPassword( string password , string username)
+        public string ReturnEncryptedPassword(string password, string username)
         {
             char[] arrName = username.ToCharArray();
             char[] arrPwd = password.ToCharArray();
 
             char[] arrNamePwd = new char[password.Length + username.Length];
-
 
             //when userName length equal to the password length 
             if (username.Length == password.Length)
@@ -22,91 +21,56 @@ namespace TagTeam.Admin.Service
                 var x = 0;//for incement array of name
                 for (int i = 0; i < (username.Length + password.Length); i++)
                 {
-                    //Console.WriteLine(strName[i]);
-
                     arrNamePwd[i] = arrName[x];
                     i = i + 1;
                     x = x + 1;
-
                 }
 
                 var y = 0;
                 for (int i = 1; i < (username.Length + password.Length); i++)
                 {
-                    //Console.WriteLine(strName[i]);
-
                     arrNamePwd[i] = arrPwd[y];
                     i = i + 1;
                     y = y + 1;
-
                 }
-
-                //read array
-                for (int i = 0; i < (username.Length + password.Length); i++)
-                {
-                    // arrNamePwd[i] = 'k';
-                    Console.Write(arrNamePwd[i]);
-
-
-
-                }
-                Console.WriteLine("");
-
             }
 
             //when the password length max than username length.
-
             else if (username.Length < password.Length)
             {
                 var x = 0;
                 for (int i = 0; i < (username.Length + username.Length - 1); i++)
                 {
-
                     arrNamePwd[i] = arrName[x];
                     i = i + 1;
                     x = x + 1;
-
                 }
 
                 var y = 0;
                 for (int i = 1; i < (username.Length + username.Length); i++)
                 {
-
                     arrNamePwd[i] = arrPwd[y];
                     i = i + 1;
                     y = y + 1;
-
                 }
 
                 for (int i = (username.Length + username.Length); i < (username.Length + password.Length); i++)
                 {
-
                     arrNamePwd[i] = arrPwd[y];
                     y = y + 1;
-
                 }
-
-                //read array
-                for (int i = 0; i < (username.Length + password.Length); i++)
-                {
-                    Console.Write(arrNamePwd[i]);
-
-                }
-                Console.WriteLine("");
 
             }
 
             else
             {
                 //username length max than password length
-
                 var x = 0;
                 for (int i = 0; i < (password.Length + password.Length - 1); i++)
                 {
                     arrNamePwd[i] = arrPwd[x];
                     i = i + 1;
                     x = x + 1;
-
                 }
 
                 var y = 0;
@@ -115,27 +79,13 @@ namespace TagTeam.Admin.Service
                     arrNamePwd[i] = arrName[y];
                     i = i + 1;
                     y = y + 1;
-
                 }
 
                 for (int i = (password.Length + password.Length); i < (password.Length + username.Length); i++)
                 {
                     arrNamePwd[i] = arrName[y];
                     y = y + 1;
-
                 }
-
-                //read array
-                for (int i = 0; i < (username.Length + password.Length); i++)
-                {
-
-                    Console.Write(arrNamePwd[i]);
-
-                }
-                Console.WriteLine("");
-
-
-
             }
 
             //build up HexaAndDecimal array with using NamePwd array.
@@ -144,13 +94,26 @@ namespace TagTeam.Admin.Service
 
             int count = 0;
 
+            int constIntValue = 0;
+
+            for (int i = 0; i < arrNamePwd.Length; i++)
+            {
+                int value = Convert.ToInt32(arrNamePwd[i]);
+                constIntValue = constIntValue + value % 10;
+            }
+
+            if (constIntValue % 10 == 0)
+            {
+                constIntValue = 1;
+            }
+
             for (int i = 0; i < arrNamePwd.Length; i++)
             {
                 int value = Convert.ToInt32(arrNamePwd[i]);
 
-                decimal decValue = arrNamePwd[i];
+                decimal decValue = arrNamePwd[i] * (constIntValue % 10);
 
-                string hexaOutput = String.Format("{0:X}", value);
+                string hexaOutput = String.Format("{0:X}", value * (constIntValue % 10));
 
                 string decimalOutput = decValue.ToString().PadLeft(3, '0');
 
@@ -160,12 +123,8 @@ namespace TagTeam.Admin.Service
                 ConvertedHexAndDecimal[count + 3] = hexaOutput.ToCharArray()[1].ToString();
                 ConvertedHexAndDecimal[count + 4] = decimalOutput.ToCharArray()[2].ToString();
 
-
                 count = count + 5;
             }
-
-
-
 
             //convert string array into char array
             char[] charHexDecimalArr = string.Join(string.Empty, ConvertedHexAndDecimal).ToCharArray();
@@ -191,7 +150,7 @@ namespace TagTeam.Admin.Service
                         }
                     case '3':
                         {
-                            finalArr[i] = '$';
+                            finalArr[i] = 'B';
                             break;
                         }
                     case '4':
@@ -206,12 +165,12 @@ namespace TagTeam.Admin.Service
                         }
                     case '6':
                         {
-                            finalArr[i] = 'm';
+                            finalArr[i] = 'M';
                             break;
                         }
                     case '7':
                         {
-                            finalArr[i] = '1';
+                            finalArr[i] = 'T';
                             break;
                         }
                     case '8':
@@ -221,7 +180,7 @@ namespace TagTeam.Admin.Service
                         }
                     case '9':
                         {
-                            finalArr[i] = '5';
+                            finalArr[i] = 'N';
                             break;
                         }
                     case '0':
@@ -246,7 +205,7 @@ namespace TagTeam.Admin.Service
                         }
                     case 'D':
                         {
-                            finalArr[i] = '#';
+                            finalArr[i] = 'p';
                             break;
                         }
                     case 'E':
@@ -257,7 +216,7 @@ namespace TagTeam.Admin.Service
 
                     default:
                         {
-                            finalArr[i] = 'h';
+                            finalArr[i] = 'X';
                             break;
                         }
                 }
@@ -269,21 +228,11 @@ namespace TagTeam.Admin.Service
                 }
 
             }
-
-            //read final array
-            for (int x = 0; x < finalArr.Length; x++)
-            {
-                Console.Write(finalArr[x]);
-                
-            }
             string FinalResult = new string(finalArr);
             return FinalResult;
         }
 
-
-        //to encryption UserName
-
-        public string  ReturnEncryptedUserName(string username)
+        public string ReturnEncryptedUserName(string username)
         {
             //return
             char[] arrName = username.ToCharArray();
@@ -291,22 +240,32 @@ namespace TagTeam.Admin.Service
 
             char[] arrNamePwd = new char[username.Length];
 
-
-            
-
             //build up HexaAndDecimal array with using NamePwd array.
 
             string[] ConvertedHexAndDecimal = new string[arrNamePwd.Length * 5];
 
             int count = 0;
 
-            for (int i = 0; i < arrNamePwd.Length; i++)
+            int constIntValue = 0;
+
+            for (int i = 0; i < arrName.Length; i++)
             {
-                int value = Convert.ToInt32(arrNamePwd[i]);
+                int value = Convert.ToInt32(arrName[i]);
+                constIntValue = constIntValue + value % 10;
+            }
 
-                decimal decValue = arrNamePwd[i];
+            if (constIntValue % 10 == 0)
+            {
+                constIntValue = 1;
+            }
 
-                string hexaOutput = String.Format("{0:X}", value);
+            for (int i = 0; i < arrName.Length; i++)
+            {
+                int value = Convert.ToInt32(arrName[i]);
+
+                decimal decValue = arrName[i] * (constIntValue % 10);
+
+                string hexaOutput = String.Format("{0:X}", value * (constIntValue % 10));
 
                 string decimalOutput = decValue.ToString().PadLeft(3, '0');
 
@@ -319,9 +278,6 @@ namespace TagTeam.Admin.Service
 
                 count = count + 5;
             }
-
-
-
 
             //convert string array into char array
             char[] charHexDecimalArr = string.Join(string.Empty, ConvertedHexAndDecimal).ToCharArray();
@@ -347,12 +303,12 @@ namespace TagTeam.Admin.Service
                         }
                     case '3':
                         {
-                            finalArr[i] = '$';
+                            finalArr[i] = 'B';
                             break;
                         }
                     case '4':
                         {
-                            finalArr[i] = '*';
+                            finalArr[i] = 'D';
                             break;
                         }
                     case '5':
@@ -367,7 +323,7 @@ namespace TagTeam.Admin.Service
                         }
                     case '7':
                         {
-                            finalArr[i] = '1';
+                            finalArr[i] = 'X';
                             break;
                         }
                     case '8':
@@ -377,12 +333,12 @@ namespace TagTeam.Admin.Service
                         }
                     case '9':
                         {
-                            finalArr[i] = '5';
+                            finalArr[i] = 'R';
                             break;
                         }
                     case '0':
                         {
-                            finalArr[i] = '6';
+                            finalArr[i] = 'n';
                             break;
                         }
                     case 'A':
@@ -392,7 +348,7 @@ namespace TagTeam.Admin.Service
                         }
                     case 'B':
                         {
-                            finalArr[i] = 'y';
+                            finalArr[i] = 'Y';
                             break;
                         }
                     case 'C':
@@ -402,7 +358,7 @@ namespace TagTeam.Admin.Service
                         }
                     case 'D':
                         {
-                            finalArr[i] = '#';
+                            finalArr[i] = 'C';
                             break;
                         }
                     case 'E':
@@ -425,14 +381,6 @@ namespace TagTeam.Admin.Service
                 }
 
             }
-
-            //read final array
-            for (int x = 0; x < finalArr.Length; x++)
-            {
-                Console.Write(finalArr[x]);
-
-            }
-
             string FinalResult = new string(finalArr);
             return FinalResult;
         }
