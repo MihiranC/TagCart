@@ -13,7 +13,7 @@ using TagTeam.Admin.Service.Interfaces;
 
 namespace TagTeam.Admin.Service
 {
-    public class Ref_DistrictsService
+    public class Ref_DistrictsService : IRef_Districts_interface
     {
         private readonly string _adminConnectionString;
         private readonly string _sCConnectionString;
@@ -91,6 +91,24 @@ namespace TagTeam.Admin.Service
             catch (Exception ex)
             {
                 return new BaseModel() { code = "998", description = ex.Message, data = districts };
+            }
+        }
+
+        public async Task<BaseModel> Select(int districtID)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(_adminConnectionString))
+                {
+                    DynamicParameters para = new DynamicParameters();
+                    para.Add("@DistrictID", districtID , DbType.Int32);
+                    var Districts = await connection.QueryAsync<Ref_Districts>("TAG_AD_SELECT_Districts", para, commandType: System.Data.CommandType.StoredProcedure);
+                    return new BaseModel() { code = "1000", description = "Success", data = Districts };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseModel() { code = "998", description = ex.Message, data = districtID };
             }
 
         }

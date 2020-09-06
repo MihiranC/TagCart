@@ -11,5 +11,6 @@ namespace TagTeam.Admin.Service.Interfaces
         Task<BaseModel> Insert(Ref_Districts data);
         Task<BaseModel> Update(UpdateData data);
         Task<BaseModel> Delete(Ref_Districts data);
+        Task<BaseModel> Select(int districtID);
     }
 }

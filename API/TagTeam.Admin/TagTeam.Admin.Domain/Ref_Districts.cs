@@ -6,8 +6,8 @@ namespace TagTeam.Admin.Domain
 {
     public class Ref_Districts
     {
-        public int DistrictID { get; set; }
-        public string Name { get; set; }
-        public int UserID { get; set; }
+        public int districtID { get; set; }
+        public string name { get; set; }
+        public int userID { get; set; }
     }
 }
