@@ -41,5 +41,12 @@ namespace TagTeam.Admin.API.Controllers
             var response = await _service.Delete(data);
             return Ok(response);
         }
+
+        [HttpGet("Select")]
+        public async Task<ActionResult> Select(int districtID)
+        {
+            var response = await _service.Select(districtID);
+            return Ok(response);
+        }
     }
 }
