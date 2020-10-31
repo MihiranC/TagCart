@@ -44,6 +44,7 @@ namespace TagTeam.Admin.API
             services.AddTransient<ITest_Interface>(c => new TestService(_adminConnectionString, _sCConnectionString));
             services.AddTransient<IPages_Interface>(c => new PagesService(_adminConnectionString, _sCConnectionString));
             services.AddTransient<IRef_Districts_interface>(c => new Ref_DistrictsService(_adminConnectionString, _sCConnectionString));
+            services.AddTransient<IUsers_interface>(c => new UsersService(_adminConnectionString, _sCConnectionString));
             services.AddTransient<ILogin_Interface>(c => new LoginService(_adminConnectionString, _sCConnectionString));
 
         }

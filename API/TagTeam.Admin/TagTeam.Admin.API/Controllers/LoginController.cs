@@ -22,12 +22,71 @@ namespace TagTeam.Admin.API.Controllers
             _service = service;
         }
 
-        [HttpGet("Select")]
+        //to user check login
+        //select
+        [HttpGet("UserCheckLogin")]
         public async Task<ActionResult> UserCheckLogin(string username , string password)
         {
             var response = await _service.UserCheckLogin(username, password);
             return Ok(response);
         }
+
+        //to customer check login
+        [HttpGet("Select")]
+        public async Task<ActionResult> CustomerCheckLogin(string username, string password)
+        {
+            var response = await _service.CustomerCheckLogin(username, password);
+            return Ok(response);
+        }
+
+        //to User Process First Signup
+        //Update
+        [HttpPost("UserProcessFirstSignup")]
+        public async Task<ActionResult> UserProcessFirstSignup(SignUpModel SignUpModel)
+        {
+            var response = await _service.UserProcessFirstSignup(SignUpModel);
+            return Ok(response);
+        }
+
+
+        //to Customer Process First Signup
+        //Update
+        [HttpPost("CustomerProcessFirstSignup")]
+        public async Task<ActionResult> CustomerProcessFirstSignup(string password, string username)
+        {
+            var response = await _service.CustomerProcessFirstSignup(password, username);
+            return Ok(response);
+        }
+
+        //to User Change Password Request 
+        //select
+        [HttpGet("UserChangePasswordRequest")]
+        public async Task<ActionResult> UserChangePasswordRequest(string userInput)
+        {
+            var response = await _service.UserChangePasswordRequest(userInput);
+            return Ok(response);
+        }
+
+
+        //to User Change Password
+        //Update
+        [HttpPost("UserChangePassword")]
+        public async Task<ActionResult> UserChangePassword(ChangePasswordModel ChangePasswordModel)
+        {
+            var response = await _service.UserChangePassword(ChangePasswordModel);
+            return Ok(response);
+        }
+
+
+        //to get User Name passing encrypted user name
+        
+        [HttpGet("GetUserName")]
+        public async Task<ActionResult> GetUserName(string encrpUserName)
+        {
+            var response = await _service.GetUserName(encrpUserName);
+            return Ok(response);
+        }
+
 
     }
 }
