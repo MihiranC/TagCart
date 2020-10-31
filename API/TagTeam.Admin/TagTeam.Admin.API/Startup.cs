@@ -45,7 +45,9 @@ namespace TagTeam.Admin.API
             services.AddTransient<IPages_Interface>(c => new PagesService(_adminConnectionString, _sCConnectionString));
             services.AddTransient<IRef_Districts_interface>(c => new Ref_DistrictsService(_adminConnectionString, _sCConnectionString));
             services.AddTransient<ILogin_Interface>(c => new LoginService(_adminConnectionString, _sCConnectionString));
-
+            services.AddTransient<ISettings_interface>(c => new SettingsService(_adminConnectionString, _sCConnectionString));
+            services.AddTransient<INextCode_interface>(c => new NextCodeService(_adminConnectionString, _sCConnectionString));
+            services.AddTransient<IImageResize_interface>(c => new ImageResizeService(_adminConnectionString, _sCConnectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
