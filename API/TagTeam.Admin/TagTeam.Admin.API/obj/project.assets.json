@@ -4633,6 +4633,9 @@
       "TagTeam.Admin.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
         "compile": {
           "bin/placeholder/TagTeam.Admin.Domain.dll": {}
         },
@@ -7926,7 +7929,7 @@
       ]
     },
     "runtime.native.System.IO.Compression/4.3.0": {
-      "sha512": "INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==",
+      "sha512": "b+V9JC/Ii3sR659flBeaBJww111425tgjcDS1k+hqV4sGh9FALRDBvJnDtQ895gAzpPTUOFDHdqaZ2Et7BpZMg==",
       "type": "package",
       "path": "runtime.native.system.io.compression/4.3.0",
       "files": [
@@ -8030,7 +8033,7 @@
       ]
     },
     "runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
-      "sha512": "nyFNiCk/r+VOiIqreLix8yN+q3Wga9+SE8BCgkf+2BwEKiNx6DyvFjCgkfV743/grxv8jHJ8gUK4XEQw7yzRYg==",
+      "sha512": "T5NvFgmHX0WH4c7lP72krsnk+IJI10vJf2j2twGE+5QBRA4RyRAgD+ZjEgdmpLOjW4B+nZGaadewTCUcR899OQ==",
       "type": "package",
       "path": "runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
@@ -8367,7 +8370,7 @@
       ]
     },
     "System.Collections.NonGeneric/4.3.0": {
-      "sha512": "prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
+      "sha512": "LE/oChpRvkSi3U25u0KnJcI44JeDZ1QJCyN4qFDx2uusEypdqR24w7lKYw21eYe5esuCBuc862wRmpF63Yy1KQ==",
       "type": "package",
       "path": "system.collections.nongeneric/4.3.0",
       "files": [
@@ -12702,23 +12705,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {},
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Works\\TagTeam\\Shoppinf Cart\\Admin\\API\\git\\API\\TagTeam.Admin\\TagTeam.Admin.API\\TagTeam.Admin.API.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Source\\Repos\\TagCart\\API\\TagTeam.Admin\\TagTeam.Admin.API\\TagTeam.Admin.API.csproj",
       "projectName": "TagTeam.Admin.API",
-      "projectPath": "D:\\My Works\\TagTeam\\Shoppinf Cart\\Admin\\API\\git\\API\\TagTeam.Admin\\TagTeam.Admin.API\\TagTeam.Admin.API.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "D:\\My Works\\TagTeam\\Shoppinf Cart\\Admin\\API\\git\\API\\TagTeam.Admin\\TagTeam.Admin.API\\obj\\",
+      "projectPath": "C:\\Users\\ASUS\\Source\\Repos\\TagCart\\API\\TagTeam.Admin\\TagTeam.Admin.API\\TagTeam.Admin.API.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ASUS\\Source\\Repos\\TagCart\\API\\TagTeam.Admin\\TagTeam.Admin.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12731,11 +12734,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\My Works\\TagTeam\\Shoppinf Cart\\Admin\\API\\git\\API\\TagTeam.Admin\\TagTeam.Admin.Domain\\TagTeam.Admin.Domain.csproj": {
-              "projectPath": "D:\\My Works\\TagTeam\\Shoppinf Cart\\Admin\\API\\git\\API\\TagTeam.Admin\\TagTeam.Admin.Domain\\TagTeam.Admin.Domain.csproj"
+            "C:\\Users\\ASUS\\Source\\Repos\\TagCart\\API\\TagTeam.Admin\\TagTeam.Admin.Domain\\TagTeam.Admin.Domain.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Source\\Repos\\TagCart\\API\\TagTeam.Admin\\TagTeam.Admin.Domain\\TagTeam.Admin.Domain.csproj"
             },
-            "D:\\My Works\\TagTeam\\Shoppinf Cart\\Admin\\API\\git\\API\\TagTeam.Admin\\TagTeam.Admin.Service\\TagTeam.Admin.Service.csproj": {
-              "projectPath": "D:\\My Works\\TagTeam\\Shoppinf Cart\\Admin\\API\\git\\API\\TagTeam.Admin\\TagTeam.Admin.Service\\TagTeam.Admin.Service.csproj"
+            "C:\\Users\\ASUS\\Source\\Repos\\TagCart\\API\\TagTeam.Admin\\TagTeam.Admin.Service\\TagTeam.Admin.Service.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Source\\Repos\\TagCart\\API\\TagTeam.Admin\\TagTeam.Admin.Service\\TagTeam.Admin.Service.csproj"
             }
           }
         }
@@ -12761,6 +12764,7 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

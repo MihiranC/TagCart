@@ -209,6 +209,9 @@
         }
       },
       "TagTeam.Admin.Domain/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
         "runtime": {
           "TagTeam.Admin.Domain.dll": {}
         }

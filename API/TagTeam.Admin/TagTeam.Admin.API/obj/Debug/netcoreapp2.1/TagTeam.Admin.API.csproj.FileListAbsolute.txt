@@ -58,3 +58,23 @@ D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.
 D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.csproj.CopyComplete
 D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.dll
 D:\My Works\TagTeam\Shoppinf Cart\Admin\API\git\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.pdb
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\bin\Debug\netcoreapp2.1\TagTeam.Admin.API.deps.json
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\bin\Debug\netcoreapp2.1\TagTeam.Admin.API.runtimeconfig.json
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\bin\Debug\netcoreapp2.1\TagTeam.Admin.API.runtimeconfig.dev.json
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\bin\Debug\netcoreapp2.1\TagTeam.Admin.API.dll
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\bin\Debug\netcoreapp2.1\TagTeam.Admin.API.pdb
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\bin\Debug\netcoreapp2.1\TagTeam.Admin.Domain.dll
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\bin\Debug\netcoreapp2.1\TagTeam.Admin.Service.dll
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\bin\Debug\netcoreapp2.1\TagTeam.Admin.Domain.pdb
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\bin\Debug\netcoreapp2.1\TagTeam.Admin.Service.pdb
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.csprojAssemblyReference.cache
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.RazorAssemblyInfo.cache
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.RazorAssemblyInfo.cs
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.AssemblyInfoInputs.cache
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.AssemblyInfo.cs
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.RazorTargetAssemblyInfo.cache
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.csproj.CopyComplete
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.dll
+C:\Users\ASUS\Source\Repos\TagCart\API\TagTeam.Admin\TagTeam.Admin.API\obj\Debug\netcoreapp2.1\TagTeam.Admin.API.pdb
