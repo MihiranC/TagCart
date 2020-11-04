@@ -8,6 +8,14 @@ namespace TagTeam.Admin.Service.Interfaces
 {
     public interface ILogin_Interface
     {
-        Task<BaseModel> UserCheckLogin(string username , string password);
+        Task<BaseModel> UserCheckLogin(LoginModel loginModel);
+        Task<BaseModel> CustomerCheckLogin(LoginModel loginModel);
+        Task<BaseModel> UserProcessFirstSignup(SignUpModel SignUpModel);
+        Task<BaseModel> CustomerProcessFirstSignup(string username, string password);
+        Task<BaseModel> UserChangePasswordRequest(string userInput);
+        Task<BaseModel> GetUserName(string encrpUserName);
+        Task<BaseModel> UserChangePassword(ChangePasswordModel ChangePasswordModel);
+
+
     }
 }
