@@ -24,18 +24,18 @@ namespace TagTeam.Admin.API.Controllers
 
         //to user check login
         //select
-        [HttpGet("UserCheckLogin")]
-        public async Task<ActionResult> UserCheckLogin(string username , string password)
+        [HttpPost("UserCheckLogin")] 
+        public async Task<ActionResult> UserCheckLogin(LoginModel loginModel)
         {
-            var response = await _service.UserCheckLogin(username, password);
+            var response = await _service.UserCheckLogin(loginModel);
             return Ok(response);
         }
 
         //to customer check login
-        [HttpGet("Select")]
-        public async Task<ActionResult> CustomerCheckLogin(string username, string password)
+        [HttpPost("CustomerCheckLogin")]
+        public async Task<ActionResult> CustomerCheckLogin(LoginModel loginModel)
         {
-            var response = await _service.CustomerCheckLogin(username, password);
+            var response = await _service.CustomerCheckLogin(loginModel);
             return Ok(response);
         }
 

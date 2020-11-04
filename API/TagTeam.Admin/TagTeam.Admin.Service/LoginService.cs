@@ -27,7 +27,7 @@ namespace TagTeam.Admin.Service
 
 
         //to User Check Login
-        public async Task<BaseModel> UserCheckLogin(string username , string password)
+        public async Task<BaseModel> UserCheckLogin(LoginModel loginModel)
         {
             try
             {
@@ -35,8 +35,8 @@ namespace TagTeam.Admin.Service
 
                 using (var connection = new SqlConnection(_adminConnectionString))
                 {
-                    var EncryptedUserName = encryption.ReturnEncryptedUserName(username);
-                    var EncryptedPassword = encryption.ReturnEncryptedPassword(username,password);
+                    var EncryptedUserName = encryption.ReturnEncryptedUserName(loginModel.username);
+                    var EncryptedPassword = encryption.ReturnEncryptedPassword(loginModel.username, loginModel.password);
                     DynamicParameters para = new DynamicParameters();
                     para.Add("@EncryptedUserName", EncryptedUserName, DbType.String);
                     para.Add("@EncryptedPassword", EncryptedPassword, DbType.String);
@@ -66,14 +66,14 @@ namespace TagTeam.Admin.Service
             }
             catch (Exception ex)
             {
-                return new BaseModel() { code = "998", description = ex.Message, data = username };
+                return new BaseModel() { code = "998", description = ex.Message, data = loginModel };
             }
 
         }
 
 
         //to Customer Check Login
-        public async Task<BaseModel> CustomerCheckLogin(string username, string password)
+        public async Task<BaseModel> CustomerCheckLogin(LoginModel loginModel)
         {
             try
             {
@@ -81,8 +81,8 @@ namespace TagTeam.Admin.Service
 
                 using (var connection = new SqlConnection(_adminConnectionString))
                 {
-                    var EncryptedUserName = encryption.ReturnEncryptedUserName(username);
-                    var EncryptedPassword = encryption.ReturnEncryptedPassword(username, password);
+                    var EncryptedUserName = encryption.ReturnEncryptedUserName(loginModel.username);
+                    var EncryptedPassword = encryption.ReturnEncryptedPassword(loginModel.username, loginModel.password);
                     DynamicParameters para = new DynamicParameters();
                     para.Add("@EncryptedUserName", EncryptedUserName, DbType.String);
                     para.Add("@EncryptedPassword", EncryptedPassword, DbType.String);
@@ -112,7 +112,7 @@ namespace TagTeam.Admin.Service
             }
             catch (Exception ex)
             {
-                return new BaseModel() { code = "998", description = ex.Message, data = username };
+                return new BaseModel() { code = "998", description = ex.Message, data = loginModel };
             }
 
         }

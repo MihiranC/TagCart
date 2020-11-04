@@ -6,6 +6,7 @@ namespace TagTeam.Admin.Domain.CustomModels
 {
     public class LoginModel
     {
+        public string userID { get; set; }
         public string   password { get; set; }
         public string   username { get; set; }
         public string   encryptedpassword { get; set; }
