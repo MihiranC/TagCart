@@ -43,9 +43,9 @@ namespace TagTeam.Admin.API.Controllers
         }
 
         [HttpGet("Select")]
-        public async Task<ActionResult> Select(int userID)
+        public async Task<ActionResult> Select(int userID, string roleCode)
         {
-            var response = await _service.Select(userID);
+            var response = await _service.Select(userID,roleCode);
             return Ok(response);
         }
     }

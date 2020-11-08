@@ -12,7 +12,7 @@ namespace TagTeam.Admin.Service.Interfaces
         Task<BaseModel> Insert(Users data);
         Task<BaseModel> Update(UpdateData data);
         Task<BaseModel> Delete(Users data);
-        Task<BaseModel> Select(int userID);
+        Task<BaseModel> Select(int userID, string roleCode);
     }
 }
 
