@@ -49,14 +49,14 @@ namespace TagTeam.Admin.Service
                     {
                         BaseModelObj.code = "1000";
                         BaseModelObj.description = "Success";
-                        BaseModelObj.data = Verified_UserCredentials;
+                        BaseModelObj.data = Verified_UserCredentials.ToList()[0];
                     }
                     else
                     {
 
                         BaseModelObj.code = "999";
                         BaseModelObj.description = "Username or password is incorrect";
-                        BaseModelObj.data = Verified_UserCredentials;
+                        BaseModelObj.data = Verified_UserCredentials.ToList()[0];
                     }
 
                     return BaseModelObj;
