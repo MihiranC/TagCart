@@ -17,6 +17,7 @@ namespace TagTeam.Admin.Domain
         public string addressLine3 { get; set; }
         public string addressLine4 { get; set; }
         public string email { get; set; }
-        
+        public string roleCode { get; set; }
+
     }
 }

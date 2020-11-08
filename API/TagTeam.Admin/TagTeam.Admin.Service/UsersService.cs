@@ -38,7 +38,7 @@ namespace TagTeam.Admin.Service
                     string JsonData = JsonConvert.SerializeObject(users);
                     para.Add("@JsonData", JsonData, DbType.String);
                     para.Add("@Action", "I", DbType.String);
-                    para.Add("@RoleCode", "U", DbType.String);
+                    para.Add("@RoleCode", users.roleCode, DbType.String);
 
                     await connection.ExecuteAsync("[dbo].[TAG_AD_POPULATE_Users]", para, commandType: System.Data.CommandType.StoredProcedure);
 
@@ -64,7 +64,7 @@ namespace TagTeam.Admin.Service
                     para.Add("@JsonData", JsonData, DbType.String);
                     para.Add("@OldJsonData", OldJsonData, DbType.String);
                     para.Add("@Action", "U", DbType.String);
-                    para.Add("@RoleCode", "U", DbType.String);
+                    para.Add("@RoleCode", "", DbType.String);
 
                     await connection.ExecuteAsync("[dbo].[TAG_AD_POPULATE_Users]", para, commandType: System.Data.CommandType.StoredProcedure);
 
@@ -87,7 +87,7 @@ namespace TagTeam.Admin.Service
                     string JsonData = JsonConvert.SerializeObject(users);
                     para.Add("@JsonData", JsonData, DbType.String);
                     para.Add("@Action", "D", DbType.String);
-                    para.Add("@RoleCode", "U", DbType.String);
+                    para.Add("@RoleCode", "", DbType.String);
 
                     await connection.ExecuteAsync("[dbo].[TAG_AD_POPULATE_Users]", para, commandType: System.Data.CommandType.StoredProcedure);
 
@@ -100,7 +100,7 @@ namespace TagTeam.Admin.Service
             }
         }
 
-        public async Task<BaseModel> Select(int userID)
+        public async Task<BaseModel> Select(int userID, string roleCode)
         {
             try
             {
@@ -108,6 +108,7 @@ namespace TagTeam.Admin.Service
                 {
                     DynamicParameters para = new DynamicParameters();
                     para.Add("@UserID", userID, DbType.Int32);
+                    para.Add("@RoleCode", roleCode, DbType.String);
                     var Districts = await connection.QueryAsync<Users>("TAG_AD_SELECT_Users", para, commandType: System.Data.CommandType.StoredProcedure);
                     return new BaseModel() { code = "1000", description = "Success", data = Districts };
                 }
