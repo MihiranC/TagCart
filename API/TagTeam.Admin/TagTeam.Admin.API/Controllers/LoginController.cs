@@ -52,9 +52,9 @@ namespace TagTeam.Admin.API.Controllers
         //to Customer Process First Signup
         //Update
         [HttpPost("CustomerProcessFirstSignup")]
-        public async Task<ActionResult> CustomerProcessFirstSignup(string password, string username)
+        public async Task<ActionResult> CustomerProcessFirstSignup(SignUpModel SignUpModel)
         {
-            var response = await _service.CustomerProcessFirstSignup(password, username);
+            var response = await _service.CustomerProcessFirstSignup(SignUpModel);
             return Ok(response);
         }
 
@@ -64,6 +64,15 @@ namespace TagTeam.Admin.API.Controllers
         public async Task<ActionResult> UserChangePasswordRequest(string userInput)
         {
             var response = await _service.UserChangePasswordRequest(userInput);
+            return Ok(response);
+        }
+
+        //to Customer Change Password Request 
+        //select
+        [HttpGet("CustomerChangePasswordRequest")]
+        public async Task<ActionResult> CustomerChangePasswordRequest(string userInput)
+        {
+            var response = await _service.CustomerChangePasswordRequest(userInput);
             return Ok(response);
         }
 
@@ -77,9 +86,19 @@ namespace TagTeam.Admin.API.Controllers
             return Ok(response);
         }
 
+        //to Customer Change Password
+        //Update
+        [HttpPost("CustomerChangePassword")]
+        public async Task<ActionResult> CustomerChangePassword(ChangePasswordModel ChangePasswordModel)
+        {
+            var response = await _service.CustomerChangePassword(ChangePasswordModel);
+            return Ok(response);
+        }
+
+
 
         //to get User Name passing encrypted user name
-        
+
         [HttpGet("GetUserName")]
         public async Task<ActionResult> GetUserName(string encrpUserName)
         {

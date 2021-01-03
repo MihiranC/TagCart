@@ -11,10 +11,12 @@ namespace TagTeam.Admin.Service.Interfaces
         Task<BaseModel> UserCheckLogin(LoginModel loginModel);
         Task<BaseModel> CustomerCheckLogin(LoginModel loginModel);
         Task<BaseModel> UserProcessFirstSignup(SignUpModel SignUpModel);
-        Task<BaseModel> CustomerProcessFirstSignup(string username, string password);
+        Task<BaseModel> CustomerProcessFirstSignup(SignUpModel SignUpModel);
         Task<BaseModel> UserChangePasswordRequest(string userInput);
+        Task<BaseModel> CustomerChangePasswordRequest(string userInput);
         Task<BaseModel> GetUserName(string encrpUserName);
         Task<BaseModel> UserChangePassword(ChangePasswordModel ChangePasswordModel);
+        Task<BaseModel> CustomerChangePassword(ChangePasswordModel ChangePasswordModel);
 
 
     }

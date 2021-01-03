@@ -150,7 +150,7 @@ namespace TagTeam.Admin.Service
 
 
         // to Customer Process First Signup - For CUSTOMERS
-        public async Task<BaseModel> CustomerProcessFirstSignup(string password, string username)
+        public async Task<BaseModel> CustomerProcessFirstSignup(SignUpModel SignUpModel)
         {
             try
             {
@@ -158,8 +158,8 @@ namespace TagTeam.Admin.Service
 
                 using (var connection = new SqlConnection(_adminConnectionString))
                 {
-                    var EncryptedUserName = encryption.ReturnEncryptedUserName(username);
-                    var EncryptedPassword = encryption.ReturnEncryptedPassword(password, username);
+                    var EncryptedUserName = encryption.ReturnEncryptedUserName(SignUpModel.username);
+                    var EncryptedPassword = encryption.ReturnEncryptedPassword(SignUpModel.password, SignUpModel.username);
                     DynamicParameters para = new DynamicParameters();
                     para.Add("@EncryptedUserName", EncryptedUserName, DbType.String);
                     para.Add("@EncryptedPassword", EncryptedPassword, DbType.String);
@@ -167,13 +167,13 @@ namespace TagTeam.Admin.Service
 
                     await connection.ExecuteAsync("[dbo].[Tag_AD_Login_ProcessFirstSignUp]", para, commandType: System.Data.CommandType.StoredProcedure);
 
-                    return new BaseModel() { code = "1000", description = "Success", data = username };
+                    return new BaseModel() { code = "1000", description = "Success", data = SignUpModel.username };
                 }
 
             }
             catch (Exception ex)
             {
-                return new BaseModel() { code = "998", description = ex.Message, data = username };
+                return new BaseModel() { code = "998", description = ex.Message, data = SignUpModel.username };
             }
 
         }
@@ -238,8 +238,74 @@ namespace TagTeam.Admin.Service
         }
 
 
+
+        // to Customer Change Password Request
+        public async Task<BaseModel> CustomerChangePasswordRequest(string userInput)
+        {
+            try
+            {
+
+
+                using (var connection = new SqlConnection(_adminConnectionString))
+                {
+
+                    DynamicParameters para = new DynamicParameters();
+                    para.Add("@UserInput", userInput, DbType.String);
+                    para.Add("@Type", "C", DbType.String);
+
+
+                    var CustomerID = await connection.QueryAsync<ChangePasswordModel>("[dbo].[Tag_AD_Login_ChangePasswordRequest]", para, commandType: System.Data.CommandType.StoredProcedure);
+
+                    return new BaseModel() { code = "1000", description = "Success", data = CustomerID };
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BaseModel() { code = "998", description = ex.Message, data = userInput };
+            }
+
+        }
+
+
         // to User Change Password
         public async Task<BaseModel> UserChangePassword(ChangePasswordModel ChangePasswordModel)
+        {
+            try
+            {
+                EncryptionService encryption = new EncryptionService();
+
+                using (var connection = new SqlConnection(_adminConnectionString))
+                {
+
+                    DynamicParameters para = new DynamicParameters();
+
+                    //string JsonData = JsonConvert.SerializeObject(ChangePasswordModel);
+                    var EncryptedPassword = encryption.ReturnEncryptedPassword(ChangePasswordModel.password, ChangePasswordModel.username);
+
+                    para.Add("@UserID", ChangePasswordModel.userID, DbType.String);
+                    para.Add("@ResetCode", ChangePasswordModel.resetCode, DbType.String);
+                    para.Add("@UserName", ChangePasswordModel.username, DbType.String);
+                    para.Add("@EncryptedPassword", EncryptedPassword, DbType.String);
+                    para.Add("@Type", "U", DbType.String);
+
+
+                    var UserID = await connection.QueryAsync<ChangePasswordModel>("[dbo].[Tag_AD_Login_ChangePassword]", para, commandType: System.Data.CommandType.StoredProcedure);
+
+                    return new BaseModel() { code = "1000", description = "Success", data = ChangePasswordModel.userID };
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BaseModel() { code = "998", description = ex.Message, data = ChangePasswordModel.userID };
+            }
+
+        }
+
+
+        // to Customer Change Password
+        public async Task<BaseModel> CustomerChangePassword(ChangePasswordModel ChangePasswordModel)
         {
             try
             {
