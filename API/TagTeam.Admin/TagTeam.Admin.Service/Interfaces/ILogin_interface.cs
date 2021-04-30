@@ -15,8 +15,10 @@ namespace TagTeam.Admin.Service.Interfaces
         Task<BaseModel> UserChangePasswordRequest(string userInput);
         Task<BaseModel> CustomerChangePasswordRequest(string userInput);
         Task<BaseModel> GetUserName(string encrpUserName);
+        Task<BaseModel> GetCustomerName(string encrpUserName);
         Task<BaseModel> UserChangePassword(ChangePasswordModel ChangePasswordModel);
         Task<BaseModel> CustomerChangePassword(ChangePasswordModel ChangePasswordModel);
+
 
 
     }
