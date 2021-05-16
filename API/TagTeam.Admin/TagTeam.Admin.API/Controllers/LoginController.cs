@@ -107,5 +107,15 @@ namespace TagTeam.Admin.API.Controllers
         }
 
 
+        //to get customer User Name passing encrypted user name
+
+        [HttpGet("GetCustomerName")]
+        public async Task<ActionResult> GetCustomerName(string encrpUserName)
+        {
+            var response = await _service.GetCustomerName(encrpUserName);
+            return Ok(response);
+        }
+
+
     }
 }

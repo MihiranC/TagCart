@@ -209,6 +209,37 @@ namespace TagTeam.Admin.Service
         }
 
 
+
+
+        // to User get customer UserName with passing encrypted username
+        public async Task<BaseModel> GetCustomerName(string encrpUserName)
+        {
+            try
+            {
+
+
+                using (var connection = new SqlConnection(_adminConnectionString))
+                {
+
+                    DynamicParameters para = new DynamicParameters();
+                    para.Add("@encrypUserName", encrpUserName, DbType.String);
+                    para.Add("@Type", "C", DbType.String);
+
+
+                    var Result = await connection.QueryAsync<ChangePasswordModel>("[dbo].[Tag_AD_GetUserName]", para, commandType: System.Data.CommandType.StoredProcedure);
+
+                    return new BaseModel() { code = "1000", description = "Success", data = Result };
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BaseModel() { code = "998", description = ex.Message, data = encrpUserName };
+            }
+
+        }
+
+
         // to User Change Password Request
         public async Task<BaseModel> UserChangePasswordRequest(string userInput)
         {
