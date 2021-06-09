@@ -9,6 +9,7 @@ namespace TagTeam.Admin.Domain
         public int userID { get; set; }
         public string encryptedUserName { get; set; }
         public string username { get; set; }
+        public string fullname { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string mobileNo { get; set; }

@@ -22,7 +22,7 @@ namespace TagTeam.Admin.API.Controllers
         }
 
         [HttpPost("Select")]
-        public async Task<ActionResult> Insert(string code)
+        public async Task<ActionResult> Select(string code)
         {
             var response = await _service.Select(code);
             return Ok(response);
