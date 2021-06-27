@@ -22,6 +22,13 @@ namespace TagTeam.Admin.API
         private static string _sCConnectionString { get; set; }
         private static string _DocumentUploadPath { get; set; }
 
+        //email settings
+        private static string _Mail { get; set; }
+        private static string _DisplayName { get; set; }
+        private static string _Password { get; set; }
+        private static string _Host { get; set; }
+        private static int _Port { get; set; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,6 +40,13 @@ namespace TagTeam.Admin.API
             _configuration = builder.Build();
             _adminConnectionString = _configuration.GetConnectionString("AdminConnection");
             _sCConnectionString = _configuration.GetConnectionString("SCConnection");
+
+            //email
+            _Mail = _configuration.GetConnectionString("Mail");
+            _DisplayName = _configuration.GetConnectionString("DisplayName");
+            _Password = _configuration.GetConnectionString("Password");
+            _Host = _configuration.GetConnectionString("Host");
+            _Port = int.Parse(_configuration.GetConnectionString("Port"));
         }
 
         public IConfiguration Configuration { get; }
@@ -49,6 +63,7 @@ namespace TagTeam.Admin.API
             services.AddTransient<ISettings_interface>(c => new SettingsService(_adminConnectionString, _sCConnectionString));
             services.AddTransient<INextCode_interface>(c => new NextCodeService(_adminConnectionString, _sCConnectionString));
             services.AddTransient<IImageResize_interface>(c => new ImageResizeService(_adminConnectionString, _sCConnectionString));
+            services.AddTransient<emailService>(c => new emailService(_Mail, _DisplayName, _Password, _Host, _Port));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
