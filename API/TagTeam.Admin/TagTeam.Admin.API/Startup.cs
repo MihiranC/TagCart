@@ -41,7 +41,7 @@ namespace TagTeam.Admin.API
             _adminConnectionString = _configuration.GetConnectionString("AdminConnection");
             _sCConnectionString = _configuration.GetConnectionString("SCConnection");
 
-            //email
+            //emails
             _Mail = _configuration.GetConnectionString("Mail");
             _DisplayName = _configuration.GetConnectionString("DisplayName");
             _Password = _configuration.GetConnectionString("Password");
