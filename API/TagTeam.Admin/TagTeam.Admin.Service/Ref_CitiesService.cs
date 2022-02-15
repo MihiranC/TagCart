@@ -26,7 +26,7 @@ namespace TagTeam.Admin.Service
         }
 
 
-        public async Task<BaseModel> Select(int cityID)
+        public async Task<BaseModel> Select(int cityID, int districtID)
         {
             try
             {
@@ -34,6 +34,7 @@ namespace TagTeam.Admin.Service
                 {
                     DynamicParameters para = new DynamicParameters();
                     para.Add("@CityID", cityID , DbType.Int32);
+                    para.Add("@DistrictID", districtID, DbType.Int32);
                     var Cities = await connection.QueryAsync<Ref_Cities>("Tag_AD_SELECT_Ref_Cities", para, commandType: System.Data.CommandType.StoredProcedure);
                     return new BaseModel() { code = "1000", description = "Success", data = Cities };
                 }
