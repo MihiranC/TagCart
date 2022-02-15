@@ -8,6 +8,6 @@ namespace TagTeam.Admin.Service.Interfaces
 {
     public interface IRef_Cities_interface
     {
-        Task<BaseModel> Select(int cityID);
+        Task<BaseModel> Select(int cityID, int districtID);
     }
 }

@@ -22,9 +22,9 @@ namespace TagTeam.Admin.API.Controllers
         }
 
         [HttpGet("Select")]
-        public async Task<ActionResult> Select(int cityID)
+        public async Task<ActionResult> Select(int cityID, int districtID)
         {
-            var response = await _service.Select(cityID);
+            var response = await _service.Select(cityID, districtID);
             return Ok(response);
         }
     }
