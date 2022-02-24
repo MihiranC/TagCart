@@ -106,9 +106,10 @@ namespace TagTeam.Admin.API.Controllers
                 return SSRSDetails;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                SSRSDetails.ReportOutputToBase64String = ex.Message;
+                return SSRSDetails;
             }
         }
 
