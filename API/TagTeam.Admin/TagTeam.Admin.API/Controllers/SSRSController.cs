@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
+using TagTeam.Admin.Domain.CustomModels;
 
 namespace TagTeam.Admin.API.Controllers
 {
@@ -20,8 +21,10 @@ namespace TagTeam.Admin.API.Controllers
     {
 
         [HttpPost("DownloadSSRS")]
-        public SSRS DownloadSSRS(SSRS SSRSDetails)
+        public BaseModel DownloadSSRS(SSRS SSRSDetails)
         {
+            string bytelength = "";
+            string URL = "";
             try
             {
                 //Warning[] warnings;
@@ -57,7 +60,7 @@ namespace TagTeam.Admin.API.Controllers
                 //return result;
 
                 //HttpResponseMessage responseSSRS = new HttpResponseMessage(HttpStatusCode.OK);
-               
+
                 //    responseSSRS.Content = new StreamContent(new MemoryStream(SSRSDetails.ReportOutput));
                 //    responseSSRS.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
                 //    responseSSRS.Content.Headers.ContentLength = SSRSDetails.ReportOutput.Length;
@@ -67,18 +70,18 @@ namespace TagTeam.Admin.API.Controllers
                 //        responseSSRS.Content.Headers.ContentDisposition = contentDisposition;
                 //    }
 
-                
 
-                string URL = SSRSDetails.Key_ReportServer + "/" + SSRSDetails.Key_ReportPath + "/" + SSRSDetails.Report;
+
+                URL = SSRSDetails.Key_ReportServer + "/" + SSRSDetails.Key_ReportPath + "/" + SSRSDetails.Report;
                 string Command = "Render";
                 string Format = "PDF";
                 string parameters = "?";
                 for (int i = 0; i < SSRSDetails.Parameters.Count; i++)
                 {
-                    parameters = parameters + SSRSDetails.Parameters[i].ParameterName+"="+ SSRSDetails.Parameters[i].ParameterValue;
+                    parameters = parameters + SSRSDetails.Parameters[i].ParameterName + "=" + SSRSDetails.Parameters[i].ParameterValue;
                 }
 
-                if (parameters.Length == 1)
+                if (SSRSDetails.Parameters.Count == 0)
                 {
                     URL = URL + "?rs:Command=" + Command + "&rs:Format=" + Format;
                 }
@@ -93,28 +96,34 @@ namespace TagTeam.Admin.API.Controllers
                 System.Net.WebResponse objResponse = Req.GetResponse();
                 System.IO.Stream stream = objResponse.GetResponseStream();
 
-                byte[] responseBytes;
-
-                using (Stream iStream = objResponse.GetResponseStream())
+                byte[] data; // will eventually hold the result
+                             // create a MemoryStream to build the result
+                using (var mstrm = new MemoryStream())
                 {
-                    responseBytes = new byte[objResponse.ContentLength];
-                    iStream.Read(responseBytes, 0, (int)objResponse.ContentLength);
+                    using (var s = objResponse.GetResponseStream())
+                    {
+                        var tempBuffer = new byte[4096];
+                        int bytesRead;
+                        while ((bytesRead = s.Read(tempBuffer, 0, tempBuffer.Length)) != 0)
+                        {
+                            mstrm.Write(tempBuffer, 0, bytesRead);
+                        }
+                    }
+                    mstrm.Flush();
+                    data = mstrm.GetBuffer();
                 }
 
-                SSRSDetails.ReportOutputToBase64String = Encoding.UTF8.GetString(responseBytes);
+                SSRSDetails.ReportOutputToBase64String = Convert.ToBase64String(data);
 
-                return SSRSDetails;
+
+                return new BaseModel() { code = "1000", description = "Success", data = SSRSDetails };
 
             }
             catch (Exception ex)
             {
-                SSRSDetails.ReportOutputToBase64String = ex.Message;
-                return SSRSDetails;
+                return new BaseModel() { code = "998", description = ex.Message, data = SSRSDetails };
             }
         }
-
-
-
 
 
     }
