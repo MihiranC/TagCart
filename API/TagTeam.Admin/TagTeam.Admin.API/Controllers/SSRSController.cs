@@ -70,20 +70,20 @@ namespace TagTeam.Admin.API.Controllers
                 //        responseSSRS.Content.Headers.ContentDisposition = contentDisposition;
                 //    }
 
+                //http://win-grpgfkgev5i/reportserver/?/WeddingEkataShopping/test&rs:Command=Render&rs:Format=PDF
 
-
-                URL = SSRSDetails.Key_ReportServer + "/" + SSRSDetails.Key_ReportPath + "/" + SSRSDetails.Report;
+                URL = SSRSDetails.Key_ReportServer + "/?/" + SSRSDetails.Key_ReportPath + "/" + SSRSDetails.Report;
                 string Command = "Render";
                 string Format = "PDF";
-                string parameters = "?";
+                string parameters = "";
                 for (int i = 0; i < SSRSDetails.Parameters.Count; i++)
                 {
-                    parameters = parameters + SSRSDetails.Parameters[i].ParameterName + "=" + SSRSDetails.Parameters[i].ParameterValue;
+                    parameters = parameters + "&" + SSRSDetails.Parameters[i].ParameterName + "=" + SSRSDetails.Parameters[i].ParameterValue;
                 }
 
                 if (SSRSDetails.Parameters.Count == 0)
                 {
-                    URL = URL + "?rs:Command=" + Command + "&rs:Format=" + Format;
+                    URL = URL + "&rs:Command=" + Command + "&rs:Format=" + Format;
                 }
                 else
                 {
@@ -113,8 +113,15 @@ namespace TagTeam.Admin.API.Controllers
                     data = mstrm.GetBuffer();
                 }
 
-                SSRSDetails.ReportOutputToBase64String = Convert.ToBase64String(data);
+                var filedata = new FileContentResult(data, "application/pdf")
+                {
+                    FileDownloadName = SSRSDetails.Report
+                };
+                
 
+                SSRSDetails.ReportOutput = filedata;
+
+                SSRSDetails.ReportOutputToBase64String = Convert.ToBase64String(data);
 
                 return new BaseModel() { code = "1000", description = "Success", data = SSRSDetails };
 
@@ -124,6 +131,9 @@ namespace TagTeam.Admin.API.Controllers
                 return new BaseModel() { code = "998", description = ex.Message, data = SSRSDetails };
             }
         }
+
+
+
 
 
     }

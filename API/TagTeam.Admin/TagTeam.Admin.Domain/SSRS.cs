@@ -11,7 +11,7 @@ namespace TagTeam.Admin.Domain
         public string Key_ReportPath { get; set; }
         public string Report { get; set; }
         public string Key_ReportServer { get; set; }
-        public byte[] ReportOutput { get; set; }
+        public object ReportOutput { get; set; }
         public string ReportOutputToBase64String { get; set; }
     }
 
