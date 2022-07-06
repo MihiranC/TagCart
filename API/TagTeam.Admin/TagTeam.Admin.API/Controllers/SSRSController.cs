@@ -89,6 +89,7 @@ namespace TagTeam.Admin.API.Controllers
                 {
                     URL = URL + parameters + "&rs:Command=" + Command + "&rs:Format=" + Format;
                 }
+                SSRSDetails.url = URL;
                 System.Net.HttpWebRequest Req = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(URL);
 
                 Req.Credentials = System.Net.CredentialCache.DefaultCredentials;

@@ -13,6 +13,7 @@ namespace TagTeam.Admin.Domain
         public string Key_ReportServer { get; set; }
         public object ReportOutput { get; set; }
         public string ReportOutputToBase64String { get; set; }
+        public string url { get; set; }
     }
 
     public class SSRSParameters
